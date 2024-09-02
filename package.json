@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "start:exercicio1": "tsc && node dist/exercicio1.js",
+    "start:exercicio2": "tsc && node dist/exercicio2.js",
+    "start:exercicio3": "tsc && node dist/exercicio3.js",
+    "start:exercicio4": "tsc && node dist/exercicio4.js",
+    "start:exercicio5": "tsc && node dist/exercicio5.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.5.4"
+  }
+}
