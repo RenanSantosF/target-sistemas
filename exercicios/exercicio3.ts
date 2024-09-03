@@ -2,7 +2,7 @@
 import * as fs from 'fs';
 
 // Exercicio 3 - Calcula o menor, maior e número de dias acima da média
-function analisarFaturamento(dados: { dia: number, faturamento: number }[]): { menor: number, maior: number, diasAcimaMedia: number } {
+function analisarFaturamento(dados: { dia: number, valor: number }[]): { menor: number, maior: number, diasAcimaMedia: number } {
     let menor: number = Infinity;
     let maior: number = -Infinity;
     let somaFaturamento: number = 0;
@@ -11,10 +11,10 @@ function analisarFaturamento(dados: { dia: number, faturamento: number }[]): { m
 
     // Calcula o menor, maior e soma dos faturamentos
     for (const dado of dados) {
-        if (dado.faturamento > 0) {
-            if (dado.faturamento < menor) menor = dado.faturamento;
-            if (dado.faturamento > maior) maior = dado.faturamento;
-            somaFaturamento += dado.faturamento;
+        if (dado.valor > 0) {
+            if (dado.valor < menor) menor = dado.valor;
+            if (dado.valor > maior) maior = dado.valor;
+            somaFaturamento += dado.valor;
             diasComFaturamento++;
         }
     }
@@ -24,7 +24,7 @@ function analisarFaturamento(dados: { dia: number, faturamento: number }[]): { m
 
     // Conta os dias com faturamento acima da média
     for (const dado of dados) {
-        if (dado.faturamento > mediaMensal) diasAcimaMedia++;
+        if (dado.valor > mediaMensal) diasAcimaMedia++;
     }
 
     return { menor, maior, diasAcimaMedia };
@@ -33,7 +33,7 @@ function analisarFaturamento(dados: { dia: number, faturamento: number }[]): { m
 // Função principal
 function main() {
     // Lê o arquivo .json com os dados de faturamento
-    const dadosJson = fs.readFileSync('faturamento.json', 'utf-8');
+    const dadosJson = fs.readFileSync('dados.json', 'utf-8');
     const dados = JSON.parse(dadosJson);
 
     const resultado = analisarFaturamento(dados);
